@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Test if potential opening or closing delimieter
 // Assumes that there is a "$" at state.src[pos]
 function isValidDelim (state, pos) {

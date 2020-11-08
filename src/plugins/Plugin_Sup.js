@@ -1,8 +1,7 @@
-const UNESCAPE_RE = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g
+const UNESCAPE_RE = /\\([ \\!"#$%&'()*+,./:;<=>?@[\]^_`{|}~-])/g
 
 function subscript (state, silent) {
   let found
-  let content
   let token
   const max = state.posMax
   const start = state.pos
@@ -27,7 +26,7 @@ function subscript (state, silent) {
     return false
   }
 
-  content = state.src.slice(start + 1, state.pos)
+  const content = state.src.slice(start + 1, state.pos)
 
   // don't allow unescaped spaces/newlines inside
   if (content.match(/(^|[^\\])(\\\\)*\s/)) {

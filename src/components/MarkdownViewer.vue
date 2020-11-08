@@ -6,8 +6,9 @@
 import { Component, Prop, Vue, Emit, Watch } from 'vue-property-decorator'
 // import { EChartsRender } from '@/plugins/EChartsRender'
 // import { FlowChartRender } from '@/plugins/FlowChartRender'
-// import { MarkdownRender } from '@/plugins/MarkdownRender'
-// import * as MarkdownIt from 'markdown-it'
+import { MarkdownRender } from '@/libs/MarkdownRender'
+import * as MarkdownIt from 'markdown-it'
+import echarts from 'echarts'
 
 @Component
 export default class MarkdownViewer extends Vue {
@@ -21,12 +22,12 @@ export default class MarkdownViewer extends Vue {
   // echartRender : EChartsRender = null
   // flowchartRender : FlowChartRender = null
 
-  // mdRender !: MarkdownRender
+  mdRender !: MarkdownRender
 
   MdTranslationFunc () {
     const t = this.inputText
     try {
-      // this.mdRender.render(t, 'display')
+      this.mdRender.render(t, 'display')
     } catch (err) {
       // console.log(err)
     }
@@ -79,24 +80,24 @@ export default class MarkdownViewer extends Vue {
       // }
     }
 
-    this.MdEditor = require('markdown-it')({
+    this.MdEditor = MarkdownIt.default({
       html: false,
       breaks: true,
       langPrefix: 'language-',
       linkify: true,
       typographer: true
     })
-    this.echarts = require('echarts')
+    this.echarts = echarts
     // this.echartRender = new EChartsRender(this.echarts)
     // this.flowchartRender = new FlowChartRender(window.flowchart)
     window.mermaid.initialize(mermaidConfig)
-    // this.mdRender = new MarkdownRender(
-    //   this.MdEditor,
-    //   this.echarts,
-    //   window.mermaid,
-    //   window.flowchart,
-    //   window.katex
-    // )
+    this.mdRender = new MarkdownRender(
+      this.MdEditor,
+      this.echarts,
+      window.mermaid,
+      window.flowchart,
+      window.katex
+    )
     // this.MdEditor = new window.showdown.Converter(this.edirotConfig)
   }
 

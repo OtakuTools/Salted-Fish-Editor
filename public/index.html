@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
   </head>
   <body>
     <noscript>
@@ -16,6 +17,13 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.5.2/dist/mermaid.min.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.8.0/echarts.common.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
+    <script src="https://cdn.staticfile.org/raphael/2.3.0/raphael.min.js"></script>
+    <script src="https://cdn.staticfile.org/flowchart/1.13.0/flowchart.min.js"></script>
+    <script src="https://cdn.staticfile.org/markdown-it/10.0.0/markdown-it.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
     <script src="https://cdn.staticfile.org/monaco-editor/0.19.3/min/vs/loader.min.js"></script>
     <script>
       require.config({ paths: { 'vs': 'https://cdn.staticfile.org/monaco-editor/0.19.3/min/vs' }});

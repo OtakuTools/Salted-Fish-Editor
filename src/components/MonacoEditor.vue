@@ -10,8 +10,7 @@
 <script lang="ts">
 import { Component, Prop, Vue, Emit, Watch } from 'vue-property-decorator'
 // import * as monaco from 'monaco-editor'
-// import elementResizeDetectorMaker from 'element-resize-detector'
-const elementResizeDetectorMaker = require('element-resize-detector')
+import elementResizeDetectorMaker from 'element-resize-detector'
 
 @Component
 export default class MonacoEditor extends Vue {

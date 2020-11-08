@@ -2,7 +2,7 @@ export const mark_plugin = function (md) {
   // Insert each marker as a separate text token, and add it to delimiter list
   //
   function tokenize (state, silent) {
-    let i; let scanned; let token; let len; let ch
+    let i; let token; let len
     const start = state.pos
     const marker = state.src.charCodeAt(start)
 
@@ -10,9 +10,9 @@ export const mark_plugin = function (md) {
 
     if (marker !== 0x3D/* = */) { return false }
 
-    scanned = state.scanDelims(state.pos, true)
+    const scanned = state.scanDelims(state.pos, true)
     len = scanned.length
-    ch = String.fromCharCode(marker)
+    const ch = String.fromCharCode(marker)
 
     if (len < 2) { return false }
 

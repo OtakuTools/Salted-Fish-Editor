@@ -147,7 +147,7 @@
               close-on-content-click
               offset-y
             >
-              <template v-slot:activator="{ on: menu }">
+              <template v-slot:activator="{ on: menu, attrs }">
                 <v-tooltip bottom>
                   <template v-slot:activator="{ on: tooltip }">
                     <v-btn depressed tile icon v-on="{ ...tooltip, ...menu }" v-bind="attrs">
@@ -361,7 +361,7 @@
       </v-card>
     </v-dialog>
 
-    <v-dialog
+    <!-- <v-dialog
       v-model="imageEditorVisible"
       persistent
       width="900"
@@ -371,7 +371,7 @@
           <ImageEditor @getImage="getImageFromImageEditor" @cancel="closeImageEditor" />
         </v-card-text>
       </v-card>
-    </v-dialog>
+    </v-dialog> -->
 
     <v-overlay
       absolute
@@ -400,13 +400,13 @@ import { Component, Prop, Vue, Emit } from 'vue-property-decorator'
 
 const MonacoEditor = () => import('./MonacoEditor.vue')
 const MarkdownViewer = () => import('@/components/MarkdownViewer.vue')
-const ImageEditor = () => import('./ImageEditor.vue')
+// const ImageEditor = () => import('./ImageEditor.vue')
 
 @Component({
   components: {
     MonacoEditor,
-    MarkdownViewer,
-    ImageEditor
+    MarkdownViewer
+    // ImageEditor
   }
 })
 export default class MDEditor extends Vue {
@@ -723,13 +723,9 @@ export default class MDEditor extends Vue {
     }
   }
 
-  created () {
-
-  }
-
   mounted () {
     // this.qiniu = new QiniuModule()
-    if (this.$route.query.hasOwnProperty('blog')) {
+    if (Object.hasOwnProperty.call(this.$route.query, 'blog')) {
       const blogId: any = this.$route.query.blog
       // getBlogById(parseInt(blogId)).then(res => {
       //   let data = res.data
