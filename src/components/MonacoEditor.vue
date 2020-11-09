@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Emit, Watch } from 'vue-property-decorator'
-// import * as monaco from 'monaco-editor'
+import * as monaco from 'monaco-editor'
 import elementResizeDetectorMaker from 'element-resize-detector'
 
 @Component
@@ -57,7 +57,7 @@ export default class MonacoEditor extends Vue {
       ...this.editorOptions // 同codes
     }
 
-    this.monaco = window.monaco || null
+    this.monaco = monaco
 
     if (this.monaco) {
       this.monacoEditor = this.monaco.editor.create(container, opt)
